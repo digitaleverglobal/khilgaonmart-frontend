@@ -1,0 +1,245 @@
+/* Spacing is set here rather than with Tailwind: globals.css resets margin/padding
+   outside a cascade layer, which overrides Tailwind's spacing utilities. */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1.4fr) 1fr;
+  align-items: center;
+  gap: 16px;
+  width: 90%;
+  min-height: 230px;
+  margin: 18px auto 6px;
+  padding: 22px 28px;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(115deg, #0e4a5f 0%, #13627a 55%, #0e4a5f 100%);
+  box-shadow: 0 6px 20px rgba(14, 74, 95, 0.18);
+}
+
+/* Decorative brand-colour shapes in the corners. */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.blobLeft {
+  top: -70px;
+  left: -60px;
+  width: 220px;
+  height: 180px;
+  background: #f6c92c;
+  opacity: 0.9;
+}
+
+.blobRight {
+  right: -70px;
+  bottom: -90px;
+  width: 240px;
+  height: 200px;
+  background: #f07a22;
+  opacity: 0.85;
+}
+
+.dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+.side {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.categoryImage {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 46% 54% 52% 48% / 55% 45% 55% 45%;
+  background: #fffbe6;
+  border: 6px solid #f6c92c;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.contain {
+  object-fit: contain;
+  padding: 14px;
+}
+
+.center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-transform: capitalize;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.crumbLink {
+  display: inline-block;
+  padding: 3px 0;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.crumbLink:hover {
+  color: #f6c92c;
+}
+
+.crumbSep {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.crumbCurrent {
+  color: #f6c92c;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.count {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.carousel {
+  position: relative;
+  width: 200px;
+  height: 196px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 14px;
+  background: #fff;
+  color: #0e4a5f;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(24px) scale(0.96);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.slideActive {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.slideImage {
+  position: relative;
+  display: block;
+  width: 100%;
+  flex: 1;
+}
+
+.slideName {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dotsNav {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* The button is a 24px tap target; the visible dot is drawn by ::before. */
+.dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: width 0.2s;
+}
+
+.dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, background 0.2s;
+}
+
+.dotActive {
+  width: 32px;
+}
+
+.dotActive::before {
+  width: 18px;
+  background: #f6c92c;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 28px 18px;
+  }
+
+  .side {
+    display: none;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+}
+
