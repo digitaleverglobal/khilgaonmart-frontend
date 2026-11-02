@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { LandingOrderOption } from "./useLandingOrder";
 import type { DeliveryArea } from "@/services/deliveryAreaService";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import OfferCarousel from "./OfferCarousel";
 import LandingCheckoutForm, {
   type CheckoutLabels,
@@ -314,25 +315,7 @@ export default function OfferLanding({
         <span className="opacity-80">{footerText}</span>
       </footer>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-black/10 bg-white px-4 py-3 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] md:hidden">
-        {price > 0 ? (
-          <div className="leading-tight text-slate-900">
-            <p className="text-lg font-black">{formatPrice(price)}</p>
-            {originalPrice > price ? (
-              <p className="text-xs text-slate-400 line-through">
-                {formatPrice(originalPrice)}
-              </p>
-            ) : null}
-          </div>
-        ) : null}
-        <a
-          href="#order-now"
-          className="flex-1 rounded-full px-5 py-3 text-center text-base font-bold"
-          style={accentButton}
-        >
-          {ctaText}
-        </a>
-      </div>
+      <MobileBottomNav />
     </main>
   );
 }

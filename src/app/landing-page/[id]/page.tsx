@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import { IMAGES } from "@/lib/api";
 import {
   fetchLandingHeader,
@@ -521,6 +522,7 @@ export default async function LandingPage({ params }: PageProps) {
       </div>
 
       <Footer settings={settings} />
+      <MobileBottomNav />
     </main>
   );
 }

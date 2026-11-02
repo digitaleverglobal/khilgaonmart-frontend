@@ -93,8 +93,8 @@ export default function FloatingContact({ settings }: Props) {
 
   return (
     <div
-      className="fixed right-4 z-[100] flex flex-col items-end gap-2.5"
-      // Lifted above a page's sticky bottom bar (--bottom-bar-h) and the phone tab bar (--mobile-nav-h).
+      className="fixed right-4 z-[100] hidden flex-col items-end gap-2.5 md:flex"
+      // Desktop only: on phones the tab bar's Chat item replaces it. Lifted above a page's sticky bottom bar (--bottom-bar-h).
       style={{ bottom: "calc(1.5rem + var(--bottom-bar-h, 0px) + var(--mobile-nav-h, 0px))" }}
     >
 
